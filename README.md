@@ -2,11 +2,11 @@
 
 ## Final Product 
 
-!["Start Game"](https://github.com/Nschulz88/jungle-rails/blob/master/public/imgs/nogames_homepage_screenshot.png)
+!["Start Game"](https://github.com/Nschulz88/cardGame/blob/master/public/imgs/nogames_homepage_screenshot.png)
 
-!["Play Game"]((https://github.com/Nschulz88/jungle-rails/blob/master/public/imgs/nogames_game_screenshot.png))
+!["Play Game"]((https://github.com/Nschulz88/cardGame/blob/master/public/imgs/nogames_game_screenshot.png)
 
-!["End Game"]((https://github.com/Nschulz88/jungle-rails/blob/master/public/imgs/nogames_endgame_screenshot.png))
+!["End Game"]((https://github.com/Nschulz88/cardGame/blob/master/public/imgs/nogames_endgame_screenshot.png)
 
 
 
