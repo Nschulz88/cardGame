@@ -70,7 +70,6 @@ function getSuitedCards(suit) {
 function getValueOf(card) {
   const value = card.split('_')[0]; //
 
-  // console.log(`getValueOf(${card}) => ${value}`);
   switch(value) {
     case 'ace': return 1;
     case 'jack': return 11;
@@ -93,10 +92,8 @@ app.get('/games', (req, res) => {
 });
 
 app.get('/game/:gameId', (req, res) => {
-
   const gameId = req.params.gameId;
   const game = state.games[gameId];
-
   if(!game) {
     res.redirect('/');
     return;
@@ -130,21 +127,9 @@ app.get('/rankPage', (req, res) => {
   });
 });
 
-// app.get('/rankPageWar', (req, res) => {
-
-//   const warGamesPrms = warDataHelpers.getNamesAndScores();
-//   warGamesPrms
-//     .then((warGames) => {
-//       res.render("rankPageWar", { warGames } );
-//     });
-// });
-
-
 app.post("/game/new", (req, res) => {
   const gameId = new Date().getTime().toString(36);
-
   const pile = shuffleCard(getSuitedCards('hearts'));
-
   var valueCard = pile.pop();
   state.games[gameId] = {
     hand1: getSuitedCards('spades'),
@@ -163,8 +148,6 @@ app.post("/game/new", (req, res) => {
 });
 
 app.post("/game/war", (req, res) => {
-
-
   const gameId = new Date().getTime().toString(36) + "W";
   let war1pile = shuffleCard(getSuitedCards('spades'));
   let war2pile = shuffleCard(getSuitedCards('hearts'));
@@ -178,9 +161,7 @@ app.post("/game/war", (req, res) => {
     war2: war2pile.pop(),
     war2pile,
     war1pile,
-
   }
-
   res.redirect(`/game/war/${gameId}`);
 });
 
@@ -222,15 +203,12 @@ app.post('/game/war/:gameId/', (req, res) => {
   } else {
     res.redirect(`/game/war/${gameId}`);
   }
-  // res.redirect(`/game/war/${gameId}`);
 });
 
 app.post('/game/:gameId/play', (req, res) => {
   const { gameId } = req.params;
   const { card } = req.body;
-
   const game = state.games[gameId];
-
   if(!game) {
     res.redirect('/');
     return;
@@ -243,11 +221,9 @@ app.post('/game/:gameId/play', (req, res) => {
   game.winner = game.username;
   if(!game.over){
     if(getValueOf(game.bet1) === getValueOf(game.bet2)) {
-      // console.log(`Player 1 wins with ${getValueOf(game.valueCard)} with ${card} vs ${opponentBet}`);
       game.score1 += getValueOf(game.valueCard) / 2;
       game.score2 += getValueOf(game.valueCard) / 2;
     } else if (getValueOf(game.bet1) > getValueOf(game.bet2)){
-      // console.log(`Player 2 wins with ${getValueOf(game.valueCard)} with ${opponentBet} vs ${card}`);
       game.score1 += getValueOf(game.valueCard);
     } else if (getValueOf(game.bet2) > getValueOf(game.bet1)) {
       game.score2 += getValueOf(game.valueCard);
