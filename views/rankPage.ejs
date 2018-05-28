@@ -18,8 +18,8 @@
 <header>
     <h1>Highscores</h1>
 </header>
-<body>
 
+<body>
     <div class="rankbox">
         <h3>High Scores</h3>
         <table>
@@ -36,10 +36,9 @@
             </tbody>
         </table>
 
-                <table>
+        <table>
             <thead>
                 <h4>War</h4>
-             <!--    <tr><th>Name</th><th>Score</th></tr> -->
             </thead>
             <tbody>
                 <% warGames.forEach((war) => { %>
@@ -49,12 +48,10 @@
                 <% }); %>
             </tbody>
         </table>
-
     </div>
 
     <form method="get" action="/">
         <button class="backhome" type="submit"> Go back home </button>
     </form>
-
 </body>
 </html>
